@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+*.egg-info/
+.DS_Store
+*.mp4
+*.srt
+fixtures/SHORT_01_LA_LUNE/

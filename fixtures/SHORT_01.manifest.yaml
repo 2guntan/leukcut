@@ -1,0 +1,360 @@
+# =============================================================
+# WARABA STUDIOS — SHOT MANIFEST · schema waraba/shotmanifest/v1
+# Source of truth for SHORT_01 "La Lune au fond du puits".
+# Human doc: 26_LEUK_Short1_Storyboard_v1.docx (view of this file).
+# RULES:
+#  - `status` is edited ONLY by the studio validation loop (Bou + DA).
+#    Tooling (leukcut) reads it, never writes it.
+#  - Lifecycle: pending -> generated -> approved -> locked
+#  - `file` is relative to the short's folder.
+#  - Timecodes are MM:SS.d ; shots must tile the timeline exactly.
+# =============================================================
+
+schema: waraba/shotmanifest/v1
+short:
+  id: SHORT_01
+  title: "La Lune au fond du puits"
+  salve: 1
+  format:
+    aspect: "9:16"
+    resolution: [1080, 1920]
+    fps: 25
+    duration_s: 60.0
+  canon_refs: ["doc 21", "doc 22", "doc 25", "doc 26"]
+
+defaults:
+  transition: cut
+  kenburns:
+    enabled: true
+    max_zoom: 1.06
+  # STYLE DECISION SD-1 (validee par Bou, 2026-08-29) : style officiel de la
+  # salve 1 = "S2-cinema" - flat 2D coherent avec le board v01 ; Leuk en
+  # costume S2 (t-shirt losange or + short olive), plus de tunique S1.
+  prompt_base: >-
+    FLAT 2D animation still, clean vector-like shapes, VERTICAL 9:16 frame,
+    consistent with the existing board frames. Dry-season African savanna
+    village around a stone well, deep indigo night sky (#1F2A5A to #131A3A),
+    rising full moon, warm golden accents. CHARACTERS STRICTLY ON-MODEL -
+    LEUK: slim vertical golden hare, white t-shirt with a gold diamond motif,
+    olive shorts, white four-point star shape on forehead (star NOT glowing
+    unless stated), one straight ear one bent ear. BOUKI: heavy bipedal hyena
+    exactly as BOUKI_SELECTED_V01 with WARM BROWN fur #9A7B52, big round belly
+    opening a patched terracotta vest, mango-shaped golden spot on right
+    shoulder, gentle glutton face, exactly four limbs. Background animals as
+    simple dark silhouettes.
+  negative_prompt: >-
+    green eyes, menacing, Lion King hyena, extra limbs, glowing star,
+    3D render, photorealistic, painterly storybook style, cream tunic,
+    text, watermark, horizontal frame
+
+audio:
+  guide_track: "02_AUDIO/GUIDE_TRACK_V1.wav"   # piste témoin (kora + silences)
+  markers:
+    - { at: "00:38.0", cue: "silence_total" }     # Moment-Étoile entry
+    - { at: "00:41.0", cue: "kora_3_notes" }      # star ignition
+    - { at: "00:58.0", cue: "kora_signature" }    # end signature
+
+shots:
+  - id: SB1_C01
+    t_in: "00:00.0"
+    t_out: "00:03.0"
+    framing: "wide establishing, dusk"
+    action_fr: "Crépuscule. File d'animaux assoiffés vers le puits, terre craquelée."
+    dialogue: null
+    sound_fr: "Vent sec, cigales, brouhaha las."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Wide establishing shot at dusk, orange fading into indigo: a long queue
+      of thirsty silhouetted animals with empty gourds winds toward a stone
+      well, cracked dry earth, no characters in close view.
+    status: approved
+    file: 01_STORYBOARD/SB1_C01_v01.jpeg
+    version: 1
+
+  - id: SB1_C02
+    t_in: "00:03.0"
+    t_out: "00:06.0"
+    framing: "medium, Bouki on well rim"
+    action_fr: "Bouki trône sur la margelle, patte tendue : un fruit par gourde. Panier plein à ses pieds."
+    dialogue: null
+    sound_fr: "Voix étouffées ; « toc » du fruit dans le panier."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Medium shot: BOUKI sits atop the stone well rim like a toll collector,
+      one foot on the bucket, open palm extended; a basket overflowing with
+      fruit at his feet; a small silhouetted animal reluctantly hands over a fruit.
+    status: approved
+    file: 01_STORYBOARD/SB1_C02_v02.jpeg
+    version: 2
+
+  - id: SB1_C03
+    t_in: "00:06.0"
+    t_out: "00:09.0"
+    framing: "close-up insert, the trade"
+    action_fr: "L'échange inéquitable : gros fruit contre mini-gourde, une goutte tombe."
+    dialogue: null
+    sound_fr: "Goutte-à-goutte mesquin."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Close-up insert on the unfair trade: a large fruit drops into BOUKI's big
+      paw while his other paw hands back a tiny half-filled water gourd, a
+      single drop falling.
+    status: approved
+    file: 01_STORYBOARD/SB1_C03_v02.jpeg
+    version: 2
+
+  - id: SB1_C04
+    t_in: "00:09.0"
+    t_out: "00:11.0"
+    framing: "two-shot"
+    action_fr: "Leuk arrive ; Bouki lève DEUX doigts, prix doublé. Leuk impassible."
+    dialogue: null
+    sound_fr: "Petit rire gras de Bouki."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Two-shot: LEUK arrives calm and upright at the well; BOUKI grins and
+      raises TWO fingers, doubling the price; LEUK's face stays serene, star
+      not glowing.
+    status: approved
+    file: 01_STORYBOARD/SB1_C04_v01.jpeg
+    version: 1
+
+  - id: SB1_C05
+    t_in: "00:11.0"
+    t_out: "00:13.0"
+    framing: "close on Leuk + tilt to sky"
+    action_fr: "Leuk regarde le fond du puits, puis la pleine lune qui monte. Nuit tombante."
+    dialogue: null
+    sound_fr: "Nappe de nuit ; premier motif de kora, discret."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Close on LEUK glancing down into the dark well, then tilting his gaze up
+      to the rising full moon in the deepening indigo sky; thoughtful
+      expression, star OFF.
+    status: approved
+    file: 01_STORYBOARD/SB1_C05_v02.jpeg
+    version: 2
+
+  - id: SB1_C06
+    t_in: "00:13.0"
+    t_out: "00:17.0"
+    framing: "medium, haggling"
+    action_fr: "Négociation mimée. Bouki triple le prix : TROIS doigts, ricanement, ventre secoué."
+    dialogue: null
+    sound_fr: "Ricanement ; percussion comique."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Medium shot: comic mimed haggling; BOUKI leans back laughing, belly
+      shaking, THREE fingers raised; LEUK shrugs mid-gesture.
+    status: approved
+    file: 01_STORYBOARD/SB1_C06_v01.jpeg
+    version: 1
+
+  - id: SB1_C07
+    t_in: "00:17.0"
+    t_out: "00:22.0"
+    framing: "medium, Leuk's fake tasting"
+    action_fr: "Leuk s'assoit face au puits et « boit » : claquements de langue extatiques, sans avoir rien bu. Bouki s'immobilise, intrigué."
+    dialogue: null
+    sound_fr: "Claquements de langue exagérés ; silence de Bouki."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Medium shot: LEUK sits facing the well, eyes closed in fake ecstasy,
+      smacking his lips as if tasting something divine though he drank nothing;
+      behind him BOUKI freezes mid-laugh, suddenly intrigued.
+    status: approved
+    file: 01_STORYBOARD/SB1_C07_v01.jpeg
+    version: 1
+
+  - id: SB1_C08
+    t_in: "00:22.0"
+    t_out: "00:28.0"
+    framing: "close-up, conspirator"
+    action_fr: "La confidence de Leuk sur « la lune des forts » qui dort au fond."
+    dialogue: "LEUK : « L'eau du dessus, ça va... mais celle du fond ! Celle où dort la lune des forts... celui qui la boit ne craint plus personne. »"
+    sound_fr: "Kora discrète sous le dialogue."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Close-up of LEUK in conspirator mode, half-turned toward BOUKI, one paw
+      beside his mouth, sly knowing smile, moonlight rim light; star OFF.
+    status: approved
+    file: 01_STORYBOARD/SB1_C08_v01.jpeg
+    version: 1
+
+  - id: SB1_C09
+    t_in: "00:28.0"
+    t_out: "00:33.0"
+    framing: "medium from behind Bouki — LE FRÉTILLEMENT"
+    action_fr: "Bouki penché sur la margelle, hypnotisé, salive. SA QUEUE FRÉTILLE — première apparition canonique du tell."
+    dialogue: null
+    sound_fr: "Grelot doux du frétillement (motif à créer) + gloutonnerie."
+    star_state: "off"
+    fretillement: true
+    prompt: >-
+      Medium shot from behind BOUKI leaning over the well rim, drool at his
+      lip, his brushy tail blurred in an excited wag (motion lines), while
+      LEUK watches from the side with a calm face.
+    status: approved
+    file: 01_STORYBOARD/SB1_C09_v01.jpeg
+    version: 1
+
+  - id: SB1_C10
+    t_in: "00:33.0"
+    t_out: "00:38.0"
+    framing: "POV Bouki, down the well"
+    action_fr: "Vue subjective : la pleine lune tremble sur l'eau noire, énorme, appétissante."
+    dialogue: null
+    sound_fr: "Réverbération du puits ; l'eau clapote."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      POV shot straight down the dark stone well: the full golden moon
+      reflected on black trembling water far below, circular frame of the well
+      walls, hypnotic and delicious.
+    status: approved
+    file: 01_STORYBOARD/SB1_C10_v03.jpeg
+    version: 3
+
+  - id: SB1_C11
+    t_in: "00:38.0"
+    t_out: "00:41.0"
+    framing: "chest-level, Leuk in shadow — micro-pause"
+    action_fr: "Moment-Étoile, phase 1 : Leuk immobile dans l'ombre, le regard glisse du puits vers la corde du seau. Tout s'arrête."
+    dialogue: null
+    sound_fr: "SILENCE complet (coupure du fond sonore)."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Chest-level shot of LEUK standing back in deep indigo shadow, perfectly
+      still, only his eyes sliding from the well toward the bucket rope; held
+      breath moment, star OFF, everything dark and quiet.
+    status: approved
+    file: 01_STORYBOARD/SB1_C11_v02.jpeg
+    version: 2
+
+  - id: SB1_C12
+    t_in: "00:41.0"
+    t_out: "00:44.0"
+    framing: "extreme close-up forehead — IGNITION"
+    action_fr: "Moment-Étoile, phase 2 : l'étoile S'ALLUME, halo blanc-or. Trois notes de kora, rien d'autre."
+    dialogue: null
+    sound_fr: "3 notes de kora (signature, doc 21 §7)."
+    star_state: "ignite"
+    fretillement: false
+    prompt: >-
+      Extreme close-up on LEUK's forehead and eyes in darkness: the white star
+      IGNITES with a soft white-gold glow lighting his calm confident eyes from
+      above; pure indigo background.
+    status: approved
+    file: 01_STORYBOARD/SB1_C12_v01.jpeg
+    version: 1
+
+  - id: SB1_C13
+    t_in: "00:44.0"
+    t_out: "00:47.0"
+    framing: "wide, the descent"
+    action_fr: "Bouki entassé dans le seau descend vers sa « lune ». Leuk tient la manivelle, serviable."
+    dialogue: null
+    sound_fr: "Grincement de poulie ; gloussement de Bouki."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Wide shot at the well: BOUKI crammed comically into the wooden bucket
+      descending into the well shaft, licking his lips; LEUK helpfully steadies
+      the crank, gentle poker face, star OFF again.
+    status: approved
+    file: 01_STORYBOARD/SB1_C13_v01.jpeg
+    version: 1
+
+  - id: SB1_C14
+    t_in: "00:47.0"
+    t_out: "00:49.0"
+    framing: "insert, bottom of the well"
+    action_fr: "SPLASH. Gerbe argentée, le reflet de la lune explose."
+    dialogue: null
+    sound_fr: "SPLASH énorme, écho."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Inside the well: huge silver SPLASH as the bucket hits the water, the
+      moon's reflection shattering into ripples of white-gold light on black
+      water.
+    status: approved
+    file: 01_STORYBOARD/SB1_C14_v02.jpeg
+    version: 2
+
+  - id: SB1_C15
+    t_in: "00:49.0"
+    t_out: "00:52.0"
+    framing: "medium, Bouki in the water"
+    action_fr: "Bouki barbote et mord le reflet qui se reforme toujours ailleurs. Comique, jamais effrayant."
+    dialogue: null
+    sound_fr: "Barbotage furieux ; injures étouffées par l'écho."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Medium shot at the bottom of the well: soaked BOUKI flailing in the
+      water, furiously snapping his jaws at the re-forming moon reflection that
+      always ripples away; comic frustration, never scary.
+    status: approved
+    file: 01_STORYBOARD/SB1_C15_v03.jpeg
+    version: 3
+
+  - id: SB1_C16
+    t_in: "00:52.0"
+    t_out: "00:55.0"
+    framing: "wide, surface — everyone drinks"
+    action_fr: "En surface, la file remonte L'AUTRE seau : gourdes pleines, liesse, éclaboussures dorées sous la lune."
+    dialogue: null
+    sound_fr: "Eau généreuse ; rires légers ; râles de Bouki en écho lointain."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Wide surface shot: the whole queue of animals happily hauls up the SECOND
+      bucket, filling every gourd, water sparkling gold under the full moon;
+      joyful relief.
+    status: approved
+    file: 01_STORYBOARD/SB1_C16_v02.jpeg
+    version: 2
+
+  - id: SB1_C17
+    t_in: "00:55.0"
+    t_out: "00:58.0"
+    framing: "close, to camera"
+    action_fr: "Leuk trinque avec un oiseau puis regarde la caméra."
+    dialogue: "LEUK : « Maa ngi nii ! »"
+    sound_fr: "Réplique signature (shorts 1 et 5 uniquement)."
+    star_state: "off"
+    fretillement: false
+    prompt: >-
+      Close shot: LEUK clinks his water gourd against a small bird's raised
+      wing like a toast, then looks straight into camera with a warm wink-like
+      smile; moonlit, star OFF.
+    status: approved
+    file: 01_STORYBOARD/SB1_C17_v02.jpeg
+    version: 2
+
+  - id: SB1_C18
+    t_in: "00:58.0"
+    t_out: "01:00.0"
+    framing: "end signature"
+    action_fr: "Noir indigo. L'étoile scintille une dernière fois. Kora."
+    dialogue: null
+    sound_fr: "Signature étoile + kora au noir (doc 21 §7)."
+    star_state: "sparkle"
+    fretillement: false
+    prompt: >-
+      Final signature frame: pure indigo-black screen, only the white
+      four-point star shape twinkling once at center with a soft glow; nothing
+      else.
+    status: approved
+    file: 01_STORYBOARD/SB1_C18_v01.jpeg
+    version: 1
